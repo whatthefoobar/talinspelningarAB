@@ -42,7 +42,7 @@ const Navbar = (props: Props) => {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <Link to="/" className="link active">
+      <Link to="/" sx={{ textDecoration: "none", color: "inherit" }}>
         <Typography variant="h6" sx={{ my: 2 }}>
           Talinspelningar
         </Typography>
@@ -52,7 +52,7 @@ const Navbar = (props: Props) => {
       <List>
         {navItems.map((item) => (
           <Link to={item.path} key={item.label}>
-            <ListItem disablePadding>
+            <ListItem key={item.label} disablePadding>
               <ListItemButton sx={{ textAlign: "center" }}>
                 <ListItemText primary={item.label} />
               </ListItemButton>
