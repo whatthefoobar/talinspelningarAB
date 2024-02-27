@@ -78,61 +78,65 @@ const NarratorsPage = () => {
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexWrap: "wrap",
-        justifyContent: "center",
-        gap: "20px",
-        padding: "20px",
-        marginTop: "10vh",
-      }}
-    >
-      {narrators.map((narrator, index) => (
-        <Card
-          key={index}
-          sx={{
-            width: "100%",
-            maxWidth: "360px",
-            display: "flex",
-            flexDirection: "column",
-          }}
-        >
-          <CardMedia
-            component="img"
-            sx={{ width: "100%" }}
-            image={narrator.imageUrl}
-            alt="Narrator Image"
-          />
-          <Box sx={{ display: "flex", flexDirection: "column" }}>
-            <CardContent sx={{ flex: "1 0 auto" }}>
-              <Typography component="div" variant="h5">
-                {narrator.name}
-              </Typography>
-            </CardContent>
-            <Box
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                pb: 1,
-              }}
-            >
-              <IconButton
-                aria-label={isPlaying[index] ? "pause" : "play"}
-                onClick={() => handleTogglePlayback(index)}
+    <>
+      <Typography variant="h4" gutterBottom>
+        Our narrators
+      </Typography>
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          gap: "20px",
+          padding: "20px",
+        }}
+      >
+        {narrators.map((narrator, index) => (
+          <Card
+            key={index}
+            sx={{
+              width: "100%",
+              maxWidth: "360px",
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
+            <CardMedia
+              component="img"
+              sx={{ width: "100%" }}
+              image={narrator.imageUrl}
+              alt="Narrator Image"
+            />
+            <Box sx={{ display: "flex", flexDirection: "column" }}>
+              <CardContent sx={{ flex: "1 0 auto" }}>
+                <Typography component="div" variant="h5">
+                  {narrator.name}
+                </Typography>
+              </CardContent>
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  pb: 1,
+                }}
               >
-                {isPlaying[index] ? <PauseIcon /> : <PlayArrowIcon />}
-              </IconButton>
+                <IconButton
+                  aria-label={isPlaying[index] ? "pause" : "play"}
+                  onClick={() => handleTogglePlayback(index)}
+                >
+                  {isPlaying[index] ? <PauseIcon /> : <PlayArrowIcon />}
+                </IconButton>
+              </Box>
             </Box>
-          </Box>
-          <audio
-            ref={(ref) => (audioRefs.current[index] = ref)}
-            src={narrator.audioUrl}
-          />
-        </Card>
-      ))}
-    </div>
+            <audio
+              ref={(ref) => (audioRefs.current[index] = ref)}
+              src={narrator.audioUrl}
+            />
+          </Card>
+        ))}
+      </div>
+    </>
   );
 };
 
