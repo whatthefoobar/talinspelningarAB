@@ -14,6 +14,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
+import logo from "../assets/images/talinspelningar-logo@2x-black.png";
 
 interface Props {
   /**
@@ -44,7 +45,8 @@ const Navbar = (props: Props) => {
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
       <Link to="/" sx={{ textDecoration: "none", color: "inherit" }}>
         <Typography variant="h6" sx={{ my: 2 }}>
-          Talinspelningar
+          {/* Talinspelningar */}
+          <img src={logo} alt="Logo" style={{ width: "200px" }} />
         </Typography>
       </Link>
 
@@ -68,15 +70,16 @@ const Navbar = (props: Props) => {
 
   return (
     <Box sx={{ display: "flex" }}>
-      <AppBar component="nav" sx={{ backgroundColor: "#b998eb" }}>
+      <AppBar component="nav" sx={{ backgroundColor: "#c2ade3" }}>
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Talinspelningar
+            {/* Talinspelningar */}
+            <img src={logo} alt="Logo" style={{ width: "200px" }} />
           </Typography>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             {navItems.map((item) => (
               <Link to={item.path} key={item.label}>
-                <Button sx={{ color: "#fff" }}>{item.label}</Button>
+                <Button sx={{ color: "#000000" }}>{item.label}</Button>
               </Link>
             ))}
           </Box>
@@ -87,7 +90,7 @@ const Navbar = (props: Props) => {
             onClick={handleDrawerToggle}
             sx={{ mr: 2, display: { sm: "none" } }}
           >
-            <MenuIcon />
+            <MenuIcon sx={{ color: "black" }} />
           </IconButton>
         </Toolbar>
       </AppBar>
@@ -107,6 +110,7 @@ const Navbar = (props: Props) => {
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,
+              backgroundColor: "#c2ade3",
             },
           }}
           anchor="right" // Setting anchor to right side
