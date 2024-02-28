@@ -20,8 +20,26 @@ const VisuallyHiddenInput = styled("input")({
 });
 
 const CareerPage = () => {
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    const formData = new FormData(event.currentTarget);
+    const name = formData.get("name") as string;
+    const email = formData.get("email") as string;
+    const phone = formData.get("phone") as string;
+    const cvFile = (
+      event.currentTarget.querySelector('[name="cv"]') as HTMLInputElement
+    )?.files?.[0];
+    const audioFile = (
+      event.currentTarget.querySelector('[name="audio"]') as HTMLInputElement
+    )?.files?.[0];
+
+    console.log("Name:", name);
+    console.log("Email:", email);
+    console.log("Phone:", phone);
+    console.log("CV File:", cvFile);
+    console.log("Audio File:", audioFile);
+
     // Logic to handle form submission goes here
     console.log("Form submitted!");
   };
@@ -29,7 +47,6 @@ const CareerPage = () => {
   return (
     <Box maxWidth="600px" mx="auto" mt={4}>
       <Paper sx={{ padding: "20px" }}>
-        {" "}
         <Typography variant="h4" gutterBottom>
           Career Opportunities
         </Typography>
@@ -43,6 +60,7 @@ const CareerPage = () => {
               required
               fullWidth
               id="name"
+              name="name"
               label="Your Name"
               variant="outlined"
               autoComplete="name"
@@ -53,6 +71,7 @@ const CareerPage = () => {
               required
               fullWidth
               id="email"
+              name="email"
               label="Your Email"
               type="email"
               variant="outlined"
@@ -63,16 +82,13 @@ const CareerPage = () => {
             <TextField
               fullWidth
               id="phone"
+              name="phone"
               label="Phone Number"
               variant="outlined"
               autoComplete="tel"
             />
           </Box>
           <Box mt={2}>
-            {/* <Typography variant="body1" gutterBottom>
-            Attach Resume (doc or pdf)
-          </Typography> */}
-            {/* <input type="file" accept=".doc,.docx,.pdf" /> */}
             <Button
               component="label"
               role={undefined}
@@ -81,14 +97,14 @@ const CareerPage = () => {
               startIcon={<CloudUploadIcon />}
             >
               Upload your CV
-              <VisuallyHiddenInput type="file" accept=".doc,.docx,.pdf" />
+              <VisuallyHiddenInput
+                type="file"
+                name="cv"
+                accept=".doc,.docx,.pdf"
+              />
             </Button>
           </Box>
           <Box mt={2}>
-            {/* <Typography variant="body1" gutterBottom>
-            Attach Audio File
-          </Typography> */}
-            {/* <input type="file" accept="audio/*" /> */}
             <Button
               component="label"
               role={undefined}
@@ -97,7 +113,7 @@ const CareerPage = () => {
               startIcon={<CloudUploadIcon />}
             >
               Upload your audio file
-              <VisuallyHiddenInput type="file" accept="audio/*" />
+              <VisuallyHiddenInput type="file" name="audio" accept="audio/*" />
             </Button>
           </Box>
           <Box mt={2}>
