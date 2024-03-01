@@ -14,7 +14,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
-import logo from "../assets/images/talinspelningar-logo@2x-black.png";
+import logo from "../assets/images/talinspelningar-logo@2x-lilac.png";
 
 interface Props {
   /**
@@ -70,7 +70,7 @@ const Navbar = (props: Props) => {
 
   return (
     <Box sx={{ display: "flex" }}>
-      <AppBar component="nav" sx={{ backgroundColor: "#c2ade3" }}>
+      <AppBar component="nav" sx={{ backgroundColor: "#0b1d51" }}>
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             {/* Talinspelningar */}
@@ -79,7 +79,7 @@ const Navbar = (props: Props) => {
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             {navItems.map((item) => (
               <Link to={item.path} key={item.label}>
-                <Button sx={{ color: "#000000" }}>{item.label}</Button>
+                <Button sx={{ color: "#b7c0ee" }}>{item.label}</Button>
               </Link>
             ))}
           </Box>
@@ -90,7 +90,7 @@ const Navbar = (props: Props) => {
             onClick={handleDrawerToggle}
             sx={{ mr: 2, display: { sm: "none" } }}
           >
-            <MenuIcon sx={{ color: "black" }} />
+            <MenuIcon sx={{ color: "#b7c0ee" }} />
           </IconButton>
         </Toolbar>
       </AppBar>
@@ -110,7 +110,8 @@ const Navbar = (props: Props) => {
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,
-              backgroundColor: "#c2ade3",
+              backgroundColor: "#0b1d51",
+              color: "#b7c0ee",
             },
           }}
           anchor="right" // Setting anchor to right side

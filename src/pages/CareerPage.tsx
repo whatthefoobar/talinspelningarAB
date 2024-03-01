@@ -95,6 +95,7 @@ const CareerPage = () => {
               variant="contained"
               tabIndex={-1}
               startIcon={<CloudUploadIcon />}
+              style={{ backgroundColor: "transparent", color: "#0b1d51" }}
             >
               Upload your CV
               <VisuallyHiddenInput
@@ -111,13 +112,18 @@ const CareerPage = () => {
               variant="contained"
               tabIndex={-1}
               startIcon={<CloudUploadIcon />}
+              style={{ backgroundColor: "transparent", color: "#0b1d51" }}
             >
               Upload your audio file
               <VisuallyHiddenInput type="file" name="audio" accept="audio/*" />
             </Button>
           </Box>
           <Box mt={2}>
-            <Button type="submit" variant="contained" color="primary">
+            <Button
+              type="submit"
+              variant="contained"
+              style={{ backgroundColor: "#f28500" }}
+            >
               Submit
             </Button>
           </Box>
