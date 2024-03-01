@@ -70,7 +70,7 @@ const Navbar = (props: Props) => {
 
   return (
     <Box sx={{ display: "flex" }}>
-      <AppBar component="nav" sx={{ backgroundColor: "#0b1d51" }}>
+      <AppBar component="nav" sx={{ backgroundColor: "#565554" }}>
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             {/* Talinspelningar */}
@@ -79,7 +79,7 @@ const Navbar = (props: Props) => {
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             {navItems.map((item) => (
               <Link to={item.path} key={item.label}>
-                <Button sx={{ color: "#b7c0ee" }}>{item.label}</Button>
+                <Button sx={{ color: "#c1d8eb" }}>{item.label}</Button>
               </Link>
             ))}
           </Box>
@@ -90,7 +90,7 @@ const Navbar = (props: Props) => {
             onClick={handleDrawerToggle}
             sx={{ mr: 2, display: { sm: "none" } }}
           >
-            <MenuIcon sx={{ color: "#b7c0ee" }} />
+            <MenuIcon sx={{ color: "#c1d8eb" }} />
           </IconButton>
         </Toolbar>
       </AppBar>
@@ -110,8 +110,8 @@ const Navbar = (props: Props) => {
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,
-              backgroundColor: "#0b1d51",
-              color: "#b7c0ee",
+              backgroundColor: "#565554",
+              color: "#c1d8eb",
             },
           }}
           anchor="right" // Setting anchor to right side
