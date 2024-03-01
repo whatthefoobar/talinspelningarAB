@@ -59,7 +59,7 @@ const ContactPage: React.FC = () => {
             <Button
               type="submit"
               variant="contained"
-              style={{ backgroundColor: "#f28500" }}
+              style={{ backgroundColor: "#b48e92" }}
             >
               Submit
             </Button>

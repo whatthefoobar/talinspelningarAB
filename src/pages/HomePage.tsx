@@ -25,7 +25,7 @@ const HomePage = () => {
           style={{
             marginTop: "2vh",
             marginBottom: "40px",
-            backgroundColor: "#f28500",
+            backgroundColor: "#b48e92",
           }}
         >
           Get Started
