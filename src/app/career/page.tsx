@@ -1,3 +1,4 @@
+"use client";
 import * as React from "react";
 import { styled } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
@@ -122,7 +123,7 @@ const CareerPage = () => {
             <Button
               type="submit"
               variant="contained"
-              style={{ backgroundColor: "#b48e92" }}
+              style={{ backgroundColor: "#f28500" }}
             >
               Submit
             </Button>

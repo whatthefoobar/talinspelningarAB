@@ -1,7 +1,9 @@
 import { Button, Grid, Typography } from "@mui/material";
+import Image from "next/image";
 
 const HomePage = () => {
   return (
+    // <Typography variant="h1">Test</Typography>
     <Grid
       container
       style={{
@@ -25,22 +27,20 @@ const HomePage = () => {
           style={{
             marginTop: "2vh",
             marginBottom: "40px",
-            backgroundColor: "#b48e92",
+            backgroundColor: "#f28500",
           }}
         >
           Get Started
         </Button>
       </Grid>
       <Grid item xs={12} md={6}>
-        {/* Replace the placeholder below with your image */}
-        <img
-          src="https://images.pexels.com/photos/4476366/pexels-photo-4476366.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        <Image
+          src="/home.jpg"
           alt="Placeholder"
-          style={{
-            maxWidth: "100%", // Make the image responsive
-            height: "auto",
-            maxHeight: "500px", // Set a maximum height if needed
-          }}
+          layout="responsive"
+          width={1260}
+          height={750}
+          className="max-w-full h-auto max-h-[500px]" // Tailwind CSS class for responsive image
         />
       </Grid>
     </Grid>

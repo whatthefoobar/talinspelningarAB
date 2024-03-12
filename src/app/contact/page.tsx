@@ -1,3 +1,4 @@
+"use client";
 import * as React from "react";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
@@ -59,7 +60,7 @@ const ContactPage: React.FC = () => {
             <Button
               type="submit"
               variant="contained"
-              style={{ backgroundColor: "#b48e92" }}
+              style={{ backgroundColor: "#f28500" }}
             >
               Submit
             </Button>

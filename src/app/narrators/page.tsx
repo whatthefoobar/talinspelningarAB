@@ -1,3 +1,4 @@
+"use client";
 import React, { useState, useRef } from "react";
 import {
   Box,
@@ -9,8 +10,7 @@ import {
 } from "@mui/material";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import PauseIcon from "@mui/icons-material/Pause";
-import narrator1Image from "../assets/images/orjan.jpg";
-import narrator2Image from "../assets/images/camilla.jpg";
+import Image from "next/image";
 
 interface Narrator {
   name: string;
@@ -21,37 +21,15 @@ interface Narrator {
 const narrators: Narrator[] = [
   {
     name: "Narrator 1",
-    imageUrl: narrator1Image,
+    imageUrl: "/orjan.jpg", // Adjust paths as needed
     audioUrl: "https://talinspelningar.se/wp-content/uploads/2019/10/Örjan.mp3",
   },
   {
     name: "Narrator 2",
-    imageUrl: narrator2Image,
+    imageUrl: "/camilla.jpg", // Adjust paths as needed
     audioUrl:
       "https://talinspelningar.se/wp-content/uploads/2019/10/Camilla.mp3",
   },
-  {
-    name: "Narrator 1",
-    imageUrl: narrator1Image,
-    audioUrl: "https://talinspelningar.se/wp-content/uploads/2019/10/Örjan.mp3",
-  },
-  {
-    name: "Narrator 2",
-    imageUrl: narrator2Image,
-    audioUrl:
-      "https://talinspelningar.se/wp-content/uploads/2019/10/Camilla.mp3",
-  },
-  {
-    name: "Narrator 1",
-    imageUrl: narrator1Image,
-    audioUrl: "https://talinspelningar.se/wp-content/uploads/2019/10/Örjan.mp3",
-  },
-  {
-    name: "Narrator 1",
-    imageUrl: narrator1Image,
-    audioUrl: "https://talinspelningar.se/wp-content/uploads/2019/10/Örjan.mp3",
-  },
-
   // Add more narrators as needed
 ];
 
@@ -102,10 +80,15 @@ const NarratorsPage = () => {
             }}
           >
             <CardMedia
-              component="img"
-              sx={{ width: "100%" }}
-              image={narrator.imageUrl}
-              alt="Narrator Image"
+              component={() => (
+                <Image
+                  src={narrator.imageUrl}
+                  alt="Narrator Image"
+                  layout="responsive"
+                  width={360}
+                  height={240}
+                />
+              )}
             />
             <Box sx={{ display: "flex", flexDirection: "column" }}>
               <CardContent sx={{ flex: "1 0 auto" }}>
@@ -130,7 +113,7 @@ const NarratorsPage = () => {
               </Box>
             </Box>
             <audio
-              ref={(ref) => (audioRefs.current[index] = ref)}
+              ref={(ref) => (audioRefs.current[index] = ref!)} // Added non-null assertion operator (!)
               src={narrator.audioUrl}
             />
           </Card>
