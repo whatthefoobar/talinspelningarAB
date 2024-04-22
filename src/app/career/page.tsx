@@ -21,29 +21,68 @@ const VisuallyHiddenInput = styled("input")({
 });
 
 const CareerPage = () => {
+  const [name, setName] = React.useState<string>("");
+  const [email, setEmail] = React.useState<string>("");
+  const [phone, setPhone] = React.useState<string>("");
+  const [cvFile, setCVFile] = React.useState<File>();
+  const [audioFile, setAudioFile] = React.useState<File>();
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    if (!name && !email && !phone && !cvFile && !audioFile) return;
 
     const formData = new FormData(event.currentTarget);
-    const name = formData.get("name") as string;
-    const email = formData.get("email") as string;
-    const phone = formData.get("phone") as string;
-    const cvFile = (
-      event.currentTarget.querySelector('[name="cv"]') as HTMLInputElement
-    )?.files?.[0];
-    const audioFile = (
-      event.currentTarget.querySelector('[name="audio"]') as HTMLInputElement
-    )?.files?.[0];
 
-    console.log("Name:", name);
-    console.log("Email:", email);
-    console.log("Phone:", phone);
-    console.log("CV File:", cvFile);
-    console.log("Audio File:", audioFile);
+    formData.set("name", name);
+    formData.set("email", email);
+    formData.set("phone", phone);
 
-    // Logic to handle form submission goes here
-    console.log("Form submitted!");
+    if (cvFile) {
+      formData.set("cvFile", cvFile);
+    }
+
+    if (audioFile) {
+      formData.set("audioFile", audioFile);
+    }
+
+    console.log("formData:", formData);
+
+    try {
+      const response = await fetch("/api/submitForm", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (response.ok) {
+        console.log("form data submitted:", formData);
+
+        console.log("Form submitted successfully");
+      } else {
+        console.error("Failed to submit form:", response.statusText);
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    }
   };
+
+  const handleCVFileChange = (event: React.FormEvent) => {
+    const files = (event.target as HTMLInputElement).files;
+    if (files && files.length > 0) {
+      setCVFile(files[0]);
+    }
+  };
+
+  const handleAudioFileChange = (event: React.FormEvent) => {
+    const files = (event.target as HTMLInputElement).files;
+    if (files && files.length > 0) {
+      setAudioFile(files[0]);
+    }
+  };
+
+  // React.useEffect(() => {
+  //   console.log("cvFile:", cvFile);
+  //   console.log("audioFile:", audioFile);
+  // }, [cvFile, audioFile]);
 
   return (
     <Box maxWidth="600px" mx="auto" mt={4}>
@@ -98,11 +137,13 @@ const CareerPage = () => {
               startIcon={<CloudUploadIcon />}
               style={{ backgroundColor: "transparent", color: "#565554" }}
             >
-              Upload your CV
+              {cvFile !== undefined ? cvFile.name : "Upload your CV"}
+              {/* {"Upload your CV"} */}
               <VisuallyHiddenInput
                 type="file"
                 name="cv"
                 accept=".doc,.docx,.pdf"
+                onChange={handleCVFileChange}
               />
             </Button>
           </Box>
@@ -115,8 +156,16 @@ const CareerPage = () => {
               startIcon={<CloudUploadIcon />}
               style={{ backgroundColor: "transparent", color: "#565554" }}
             >
-              Upload your audio file
-              <VisuallyHiddenInput type="file" name="audio" accept="audio/*" />
+              {audioFile !== undefined
+                ? audioFile.name
+                : "Upload your audio file"}
+              {/* {"Upload your audio file"} */}
+              <VisuallyHiddenInput
+                type="file"
+                name="audio"
+                accept="audio/*"
+                onChange={handleAudioFileChange}
+              />
             </Button>
           </Box>
           <Box mt={2}>

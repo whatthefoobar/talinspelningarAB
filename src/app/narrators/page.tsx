@@ -84,9 +84,8 @@ const NarratorsPage = () => {
                 <Image
                   src={narrator.imageUrl}
                   alt="Narrator Image"
-                  layout="responsive"
                   width={360}
-                  height={240}
+                  height={340}
                 />
               )}
             />

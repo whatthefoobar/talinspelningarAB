@@ -3,7 +3,6 @@ import Image from "next/image";
 
 const HomePage = () => {
   return (
-    // <Typography variant="h1">Test</Typography>
     <Grid
       container
       style={{
@@ -13,7 +12,7 @@ const HomePage = () => {
         padding: "0 20px",
       }}
     >
-      <Grid item xs={12} md={6}>
+      <Grid item xs={12} md={6} style={{ border: "2px solid pink" }}>
         <Typography variant="h2" component="h1" gutterBottom>
           Welcome to My Website
         </Typography>
@@ -33,14 +32,13 @@ const HomePage = () => {
           Get Started
         </Button>
       </Grid>
-      <Grid item xs={12} md={6}>
+      <Grid item xs={12} md={6} style={{ border: "2px solid red" }}>
         <Image
           src="/home.jpg"
           alt="Placeholder"
-          layout="responsive"
-          width={1260}
-          height={750}
-          className="max-w-full h-auto max-h-[500px]" // Tailwind CSS class for responsive image
+          width={760}
+          height={506}
+          style={{ width: "100%", height: "auto", border: "2px solid green" }}
         />
       </Grid>
     </Grid>
