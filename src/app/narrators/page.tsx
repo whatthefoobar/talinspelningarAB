@@ -26,11 +26,10 @@ const narrators: Narrator[] = [
   },
   {
     name: "Narrator 2",
-    imageUrl: "/camilla.jpg", // Adjust paths as needed
+    imageUrl: "/camilla.jpg",
     audioUrl:
       "https://talinspelningar.se/wp-content/uploads/2019/10/Camilla.mp3",
   },
-  // Add more narrators as needed
 ];
 
 const NarratorsPage = () => {

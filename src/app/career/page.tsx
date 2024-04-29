@@ -26,57 +26,90 @@ const CareerPage = () => {
   const [phone, setPhone] = React.useState<string>("");
   const [cvFile, setCVFile] = React.useState<File>();
   const [audioFile, setAudioFile] = React.useState<File>();
+  const [formError, setFormError] = React.useState<boolean>(false);
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    if (!name && !email && !phone && !cvFile && !audioFile) return;
-
-    const formData = new FormData(event.currentTarget);
-
-    formData.set("name", name);
-    formData.set("email", email);
-    formData.set("phone", phone);
-
-    if (cvFile) {
-      formData.set("cvFile", cvFile);
-    }
-
-    if (audioFile) {
-      formData.set("audioFile", audioFile);
-    }
-
-    console.log("formData:", formData);
-
-    try {
-      const response = await fetch("/api/submitForm", {
-        method: "POST",
-        body: formData,
-      });
-
-      if (response.ok) {
-        console.log("form data submitted:", formData);
-
-        console.log("Form submitted successfully");
-      } else {
-        console.error("Failed to submit form:", response.statusText);
-      }
-    } catch (error) {
-      console.error("Error submitting form:", error);
-    }
-  };
-
-  const handleCVFileChange = (event: React.FormEvent) => {
-    const files = (event.target as HTMLInputElement).files;
+  const handleCVFileChange = (e: React.FormEvent) => {
+    const files = (e.target as HTMLInputElement).files;
     if (files && files.length > 0) {
       setCVFile(files[0]);
     }
   };
 
-  const handleAudioFileChange = (event: React.FormEvent) => {
-    const files = (event.target as HTMLInputElement).files;
+  const handleAudioFileChange = (e: React.FormEvent) => {
+    const files = (e.target as HTMLInputElement).files;
     if (files && files.length > 0) {
       setAudioFile(files[0]);
     }
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (
+      name.length === 0 ||
+      email.length === 0 ||
+      cvFile === undefined ||
+      audioFile === undefined
+    ) {
+      setFormError(true);
+      return;
+    }
+
+    // // Reset form error when all fields are filled
+    // setFormError(false);
+
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("email", email);
+    formData.append("phone", phone || ""); // handle empty phone
+    if (cvFile) {
+      formData.append("cv", cvFile);
+    }
+    if (audioFile) {
+      formData.append("audio", audioFile);
+    }
+
+    // Log form data to console
+    for (const pair of formData.entries()) {
+      console.log("form data:", pair[0], pair[1]);
+    }
+
+    // Send formData to backend using fetch or any other method here
+
+    // if (cvFile) {
+    //   formData.append("cvFile", cvFile);
+    // }
+
+    // if (audioFile) {
+    //   formData.append("audioFile", audioFile);
+    // }
+
+    // for (const pair of formData.entries()) {
+    //   if (pair[0] === "cvFile" && pair[1] instanceof File) {
+    //     console.log("CV File Name:", pair[1].name);
+    //   } else if (pair[0] === "audioFile" && pair[1] instanceof File) {
+    //     console.log("Audio File Name:", pair[1].name);
+    //   } else {
+    //     console.log(pair[0] + ", " + pair[1]);
+    //   }
+    // }
+
+    // try {
+    //   const response = await fetch("/api/submitForm", {
+    //     method: "POST",
+    //     body: formData,
+    //   });
+
+    //   if (response.ok) {
+    //     console.log("form data submitted:", formData);
+
+    //     console.log("Form submitted successfully");
+    //   } else {
+    //     console.error("Failed to submit form:", response.statusText);
+    //   }
+    // } catch (error) {
+    //   console.error("Error submitting form:", error);
+    // }
   };
 
   // React.useEffect(() => {
@@ -104,6 +137,9 @@ const CareerPage = () => {
               label="Your Name"
               variant="outlined"
               autoComplete="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              error={formError && !name}
             />
           </Box>
           <Box mt={2}>
@@ -116,6 +152,9 @@ const CareerPage = () => {
               type="email"
               variant="outlined"
               autoComplete="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              error={formError && !email}
             />
           </Box>
           <Box mt={2}>
@@ -126,6 +165,8 @@ const CareerPage = () => {
               label="Phone Number"
               variant="outlined"
               autoComplete="tel"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
             />
           </Box>
           <Box mt={2}>
@@ -138,7 +179,7 @@ const CareerPage = () => {
               style={{ backgroundColor: "transparent", color: "#565554" }}
             >
               {cvFile !== undefined ? cvFile.name : "Upload your CV"}
-              {/* {"Upload your CV"} */}
+
               <VisuallyHiddenInput
                 type="file"
                 name="cv"
@@ -159,7 +200,7 @@ const CareerPage = () => {
               {audioFile !== undefined
                 ? audioFile.name
                 : "Upload your audio file"}
-              {/* {"Upload your audio file"} */}
+
               <VisuallyHiddenInput
                 type="file"
                 name="audio"
@@ -169,6 +210,11 @@ const CareerPage = () => {
             </Button>
           </Box>
           <Box mt={2}>
+            {formError && (
+              <Box mt={2} color="red">
+                Please fill in all fields.
+              </Box>
+            )}
             <Button
               type="submit"
               variant="contained"

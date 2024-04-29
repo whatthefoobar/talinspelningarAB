@@ -1,5 +1,6 @@
 import { Button, Grid, Typography } from "@mui/material";
 import Image from "next/image";
+// import home from "../../public/home.jpg";
 
 const HomePage = () => {
   return (
@@ -32,9 +33,15 @@ const HomePage = () => {
           Get Started
         </Button>
       </Grid>
-      <Grid item xs={12} md={6} style={{ border: "2px solid red" }}>
+      <Grid
+        item
+        xs={12}
+        md={6}
+        style={{ border: "2px solid red", width: "500px" }}
+      >
         <Image
           src="/home.jpg"
+          // src={home}
           alt="Placeholder"
           width={760}
           height={506}

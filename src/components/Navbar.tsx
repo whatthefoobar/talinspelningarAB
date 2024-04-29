@@ -30,7 +30,7 @@ const Navbar: React.FC = () => {
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
-    console.log("menu is toggled");
+    // console.log("menu is toggled");
   };
 
   const drawer = (

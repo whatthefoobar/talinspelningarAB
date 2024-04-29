@@ -13,11 +13,11 @@ import { NextRequest, NextResponse } from "next/server";
 export async function POST(req: NextRequest, res: NextResponse) {
   const data = await req.formData();
   console.log("data from frontend:", data);
-  const cvFile: File | null = data.get("cvFile") as unknown as File;
-  const audioFile: File | null = data.get("audioFile") as unknown as File;
+  // const cvFile: File | null = data.get("cvFile") as unknown as File;
+  // const audioFile: File | null = data.get("audioFile") as unknown as File;
 
-  console.log("cvFile", cvFile);
-  console.log("audioFile", audioFile);
+  // console.log("cvFile", cvFile);
+  // console.log("audioFile", audioFile);
 
   if (!data) {
     return NextResponse.json({ success: false });
