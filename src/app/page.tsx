@@ -13,7 +13,7 @@ const HomePage = () => {
         padding: "0 20px",
       }}
     >
-      <Grid item xs={12} md={6} style={{ border: "2px solid pink" }}>
+      <Grid item xs={12} md={6}>
         <Typography variant="h2" component="h1" gutterBottom>
           Welcome to My Website
         </Typography>
@@ -33,19 +33,14 @@ const HomePage = () => {
           Get Started
         </Button>
       </Grid>
-      <Grid
-        item
-        xs={12}
-        md={6}
-        style={{ border: "2px solid red", width: "500px" }}
-      >
+      <Grid item xs={12} md={6} style={{ width: "500px" }}>
         <Image
           src="/home.jpg"
           // src={home}
           alt="Placeholder"
           width={760}
           height={506}
-          style={{ width: "100%", height: "auto", border: "2px solid green" }}
+          style={{ width: "100%", height: "auto" }}
         />
       </Grid>
     </Grid>

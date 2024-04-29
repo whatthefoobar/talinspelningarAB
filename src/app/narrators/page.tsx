@@ -30,6 +30,28 @@ const narrators: Narrator[] = [
     audioUrl:
       "https://talinspelningar.se/wp-content/uploads/2019/10/Camilla.mp3",
   },
+  {
+    name: "Narrator 3",
+    imageUrl: "/orjan.jpg", // Adjust paths as needed
+    audioUrl: "https://talinspelningar.se/wp-content/uploads/2019/10/Örjan.mp3",
+  },
+  {
+    name: "Narrator 4",
+    imageUrl: "/camilla.jpg",
+    audioUrl:
+      "https://talinspelningar.se/wp-content/uploads/2019/10/Camilla.mp3",
+  },
+  {
+    name: "Narrator 5",
+    imageUrl: "/orjan.jpg", // Adjust paths as needed
+    audioUrl: "https://talinspelningar.se/wp-content/uploads/2019/10/Örjan.mp3",
+  },
+  {
+    name: "Narrator 6",
+    imageUrl: "/camilla.jpg",
+    audioUrl:
+      "https://talinspelningar.se/wp-content/uploads/2019/10/Camilla.mp3",
+  },
 ];
 
 const NarratorsPage = () => {

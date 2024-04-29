@@ -26,12 +26,14 @@ const CareerPage = () => {
   const [phone, setPhone] = React.useState<string>("");
   const [cvFile, setCVFile] = React.useState<File>();
   const [audioFile, setAudioFile] = React.useState<File>();
-  const [formError, setFormError] = React.useState<boolean>(false);
+  const [formError, setFormError] = React.useState<boolean>(false); // not used yet
+  const [submitDisabled, setSubmitDisabled] = React.useState<boolean>(true);
 
   const handleCVFileChange = (e: React.FormEvent) => {
     const files = (e.target as HTMLInputElement).files;
     if (files && files.length > 0) {
       setCVFile(files[0]);
+      validateForm(files[0], audioFile);
     }
   };
 
@@ -39,6 +41,15 @@ const CareerPage = () => {
     const files = (e.target as HTMLInputElement).files;
     if (files && files.length > 0) {
       setAudioFile(files[0]);
+      validateForm(cvFile, files[0]);
+    }
+  };
+
+  const validateForm = (cv: File | undefined, audio: File | undefined) => {
+    if (cv && audio) {
+      setSubmitDisabled(false);
+    } else {
+      setSubmitDisabled(true);
     }
   };
 
@@ -111,11 +122,6 @@ const CareerPage = () => {
     //   console.error("Error submitting form:", error);
     // }
   };
-
-  // React.useEffect(() => {
-  //   console.log("cvFile:", cvFile);
-  //   console.log("audioFile:", audioFile);
-  // }, [cvFile, audioFile]);
 
   return (
     <Box maxWidth="600px" mx="auto" mt={4}>
@@ -210,15 +216,16 @@ const CareerPage = () => {
             </Button>
           </Box>
           <Box mt={2}>
-            {formError && (
+            {/* {formError && (
               <Box mt={2} color="red">
                 Please fill in all fields.
               </Box>
-            )}
+            )} */}
             <Button
               type="submit"
               variant="contained"
               style={{ backgroundColor: "#f28500" }}
+              disabled={submitDisabled}
             >
               Submit
             </Button>
