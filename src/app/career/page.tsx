@@ -73,10 +73,10 @@ const CareerPage = () => {
     formData.append("name", name);
     formData.append("email", email);
     formData.append("phone", phone || ""); // handle empty phone
-    if (cvFile) {
+    if (cvFile !== undefined && cvFile !== null) {
       formData.append("cv", cvFile);
     }
-    if (audioFile) {
+    if (audioFile !== undefined && audioFile !== null) {
       formData.append("audio", audioFile);
     }
 
@@ -86,14 +86,6 @@ const CareerPage = () => {
     }
 
     // Send formData to backend using fetch or any other method here
-
-    // if (cvFile) {
-    //   formData.append("cvFile", cvFile);
-    // }
-
-    // if (audioFile) {
-    //   formData.append("audioFile", audioFile);
-    // }
 
     // for (const pair of formData.entries()) {
     //   if (pair[0] === "cvFile" && pair[1] instanceof File) {
@@ -105,22 +97,22 @@ const CareerPage = () => {
     //   }
     // }
 
-    // try {
-    //   const response = await fetch("/api/submitForm", {
-    //     method: "POST",
-    //     body: formData,
-    //   });
+    try {
+      const response = await fetch("/api/submitForm", {
+        method: "POST",
+        body: formData,
+      });
 
-    //   if (response.ok) {
-    //     console.log("form data submitted:", formData);
+      if (response.ok) {
+        console.log("form data submitted:", formData);
 
-    //     console.log("Form submitted successfully");
-    //   } else {
-    //     console.error("Failed to submit form:", response.statusText);
-    //   }
-    // } catch (error) {
-    //   console.error("Error submitting form:", error);
-    // }
+        console.log("Form submitted successfully");
+      } else {
+        console.error("Failed to submit form:", response.statusText);
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    }
   };
 
   return (
