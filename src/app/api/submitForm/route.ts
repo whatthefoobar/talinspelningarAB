@@ -25,34 +25,34 @@ export async function POST(req: NextRequest, res: NextResponse) {
   const cvFile = data.get("cv") as IFile;
   const audioFile = data.get("audio") as IFile;
 
-  console.log("CV File:", cvFile);
-  console.log("Audio File:", audioFile);
+  // console.log("CV File:", cvFile);
+  // console.log("Audio File:", audioFile);
 
   // Check if cvFile is not null or undefined and if it has the necessary properties
-  if (
-    cvFile &&
-    typeof cvFile.name === "string" &&
-    typeof cvFile.size === "number"
-  ) {
-    // Validate cvFile
-    console.log("CV File Name:", cvFile.name);
-    console.log("CV File Size:", cvFile.size);
-  } else {
-    console.error("CV File is not a valid file object");
-  }
+  // if (
+  //   cvFile &&
+  //   typeof cvFile.name === "string" &&
+  //   typeof cvFile.size === "number"
+  // ) {
+  //   // Validate cvFile
+  //   console.log("CV File Name:", cvFile.name);
+  //   console.log("CV File Size:", cvFile.size);
+  // } else {
+  //   console.error("CV File is not a valid file object");
+  // }
 
-  // Similar checks for audioFile
-  if (
-    audioFile &&
-    typeof audioFile.name === "string" &&
-    typeof audioFile.size === "number"
-  ) {
-    // Validate audioFile
-    console.log("Audio File Name:", audioFile.name);
-    console.log("Audio File Size:", audioFile.size);
-  } else {
-    console.error("Audio File is not a valid file object");
-  }
+  // // Similar checks for audioFile
+  // if (
+  //   audioFile &&
+  //   typeof audioFile.name === "string" &&
+  //   typeof audioFile.size === "number"
+  // ) {
+  //   // Validate audioFile
+  //   console.log("Audio File Name:", audioFile.name);
+  //   console.log("Audio File Size:", audioFile.size);
+  // } else {
+  //   console.error("Audio File is not a valid file object");
+  // }
 
   // Process file data
   const cvName = cvFile.name;
@@ -60,13 +60,12 @@ export async function POST(req: NextRequest, res: NextResponse) {
 
   // Create transporter for sending email
   const transporter = nodemailer.createTransport({
-    // Provide your SMTP details here
-    host: "smtp.example.com",
-    port: 587,
-    secure: false, // Set to true if using SSL
+    host: "smtp.gmail.com",
+    port: 465,
+    secure: true,
     auth: {
-      user: "your_email@example.com",
-      pass: "your_password",
+      user: process.env.NODEMAILER_USER,
+      pass: process.env.NODEMAILER_PASSWORD,
     },
   });
 
@@ -77,8 +76,8 @@ export async function POST(req: NextRequest, res: NextResponse) {
   // Define email message
   const message = {
     from: `${email}`,
-    to: "alluriah@gmail.com", // Admin email address
-    subject: "New Job Application",
+    to: process.env.NODEMAILER_USER, // Admin email address
+    subject: "Test",
     html: `
       <p>Name: ${name}</p>
       <p>Email: ${email}</p>
@@ -86,12 +85,10 @@ export async function POST(req: NextRequest, res: NextResponse) {
     `,
     attachments: [
       {
-        // Attach CV file
         filename: cvFile.name,
         content: cvBuffer, // Buffer
       },
       {
-        // Attach audio file
         filename: audioFile.name,
         content: audioBuffer, // Buffer
       },
