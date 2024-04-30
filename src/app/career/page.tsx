@@ -85,18 +85,6 @@ const CareerPage = () => {
       console.log("form data:", pair[0], pair[1]);
     }
 
-    // Send formData to backend using fetch or any other method here
-
-    // for (const pair of formData.entries()) {
-    //   if (pair[0] === "cvFile" && pair[1] instanceof File) {
-    //     console.log("CV File Name:", pair[1].name);
-    //   } else if (pair[0] === "audioFile" && pair[1] instanceof File) {
-    //     console.log("Audio File Name:", pair[1].name);
-    //   } else {
-    //     console.log(pair[0] + ", " + pair[1]);
-    //   }
-    // }
-
     try {
       const response = await fetch("/api/submitForm", {
         method: "POST",
@@ -216,7 +204,9 @@ const CareerPage = () => {
             <Button
               type="submit"
               variant="contained"
-              style={{ backgroundColor: "#f28500" }}
+              style={{
+                backgroundColor: submitDisabled ? "#d2ac7d" : "#f28500", // Set text color to white for better visibility
+              }}
               disabled={submitDisabled}
             >
               Submit
@@ -229,3 +219,15 @@ const CareerPage = () => {
 };
 
 export default CareerPage;
+
+// Send formData to backend using fetch or any other method here
+
+// for (const pair of formData.entries()) {
+//   if (pair[0] === "cvFile" && pair[1] instanceof File) {
+//     console.log("CV File Name:", pair[1].name);
+//   } else if (pair[0] === "audioFile" && pair[1] instanceof File) {
+//     console.log("Audio File Name:", pair[1].name);
+//   } else {
+//     console.log(pair[0] + ", " + pair[1]);
+//   }
+// }
