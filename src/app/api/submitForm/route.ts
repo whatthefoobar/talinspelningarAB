@@ -1,6 +1,7 @@
+import streamToBuffer from "@/util/streamToBuffer";
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
-import streamToBuffer from "stream-to-buffer";
+// import streamToBuffer from "stream-to-buffer";
 
 // Define the File type
 interface IFile {
@@ -25,39 +26,6 @@ export async function POST(req: NextRequest, res: NextResponse) {
   const cvFile = data.get("cv") as IFile;
   const audioFile = data.get("audio") as IFile;
 
-  // console.log("CV File:", cvFile);
-  // console.log("Audio File:", audioFile);
-
-  // Check if cvFile is not null or undefined and if it has the necessary properties
-  // if (
-  //   cvFile &&
-  //   typeof cvFile.name === "string" &&
-  //   typeof cvFile.size === "number"
-  // ) {
-  //   // Validate cvFile
-  //   console.log("CV File Name:", cvFile.name);
-  //   console.log("CV File Size:", cvFile.size);
-  // } else {
-  //   console.error("CV File is not a valid file object");
-  // }
-
-  // // Similar checks for audioFile
-  // if (
-  //   audioFile &&
-  //   typeof audioFile.name === "string" &&
-  //   typeof audioFile.size === "number"
-  // ) {
-  //   // Validate audioFile
-  //   console.log("Audio File Name:", audioFile.name);
-  //   console.log("Audio File Size:", audioFile.size);
-  // } else {
-  //   console.error("Audio File is not a valid file object");
-  // }
-
-  // Process file data
-  const cvName = cvFile.name;
-  const audioName = audioFile.name;
-
   // Create transporter for sending email
   const transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
@@ -69,10 +37,6 @@ export async function POST(req: NextRequest, res: NextResponse) {
     },
   });
 
-  // Convert streams to buffers
-  const cvBuffer = await streamToBuffer(cvFile.stream());
-  const audioBuffer = await streamToBuffer(audioFile.stream());
-
   // Define email message
   const message = {
     from: `${email}`,
@@ -83,20 +47,20 @@ export async function POST(req: NextRequest, res: NextResponse) {
       <p>Email: ${email}</p>
       <p>Phone: ${phone}</p>
     `,
+    //converts streams to buffers
     attachments: [
       {
         filename: cvFile.name,
-        content: cvBuffer, // Buffer
+        content: await streamToBuffer(cvFile.stream()), // Convert cvFile stream to buffer
       },
       {
         filename: audioFile.name,
-        content: audioBuffer, // Buffer
+        content: await streamToBuffer(audioFile.stream()), // Convert audioFile stream to buffer
       },
     ],
   };
 
   try {
-    // Send email
     await transporter.sendMail(message);
     console.log("Email sent successfully");
     return NextResponse.json({
