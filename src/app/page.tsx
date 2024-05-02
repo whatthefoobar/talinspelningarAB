@@ -10,31 +10,26 @@ import Image from "next/image";
 
 const HomePage = () => {
   return (
-    <div>
-      <Grid
-        container
-        className={styles.homePageContainer} // Use className to apply styles from CSS module
-      >
-        <Grid item xs={12} md={6} className={styles.content}>
-          <Typography variant="h2" component="h1" gutterBottom>
-            Välkommen till Talinspelningar
-          </Typography>
-          <Typography variant="h5" component="p" paragraph>
-            Vi hjälper människor ta del av kunskap och litteratur via tal.
-          </Typography>
-          <Button
-            variant="contained"
-            color="primary"
-            style={{
-              marginTop: "2vh",
-              marginBottom: "40px",
-              backgroundColor: "#f28500",
-            }}
-          >
-            Get Started
-          </Button>
-        </Grid>
-      </Grid>
+    <div className={styles.homePageContainer}>
+      <div className={styles.content}>
+        <Typography variant="h2" component="h1" gutterBottom>
+          Välkommen till Talinspelningar
+        </Typography>
+        <Typography variant="h5" component="p" paragraph>
+          Vi hjälper människor ta del av kunskap och litteratur via tal.
+        </Typography>
+        <Button
+          variant="contained"
+          color="primary"
+          style={{
+            marginTop: "2vh",
+            marginBottom: "40px",
+            backgroundColor: "#f28500",
+          }}
+        >
+          Get Started
+        </Button>
+      </div>
 
       <div className={styles.logoContainer}>
         <Image src={company1} alt="Company 1 Logo" width={150} height={60} />
