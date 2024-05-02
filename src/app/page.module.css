@@ -27,11 +27,42 @@
 
 .logoContainer {
   display: flex;
-  gap: 20px;
-  justify-content: center;
-  margin-top: 40px;
+  justify-content: space-between;
+
+  padding: 20px;
+  background-color: white;
 }
 
-.logoContainer img {
-  margin: 0 20px;
+.logoWrapper {
+  /* border: 2px solid red; */
+  padding: 0 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* justify-content: center; */
+  width: 100%;
+  gap: 20px;
+}
+
+/* .logoWrapper img {
+  margin-right: 40px;
+} */
+
+/* Slider animation */
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@media (max-width: 950px) {
+  .logoWrapper {
+    padding: 0;
+    width: 100%;
+    animation: slide 10s infinite linear;
+    overflow: hidden;
+  }
 }
