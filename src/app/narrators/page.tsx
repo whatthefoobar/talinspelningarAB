@@ -133,7 +133,11 @@ const NarratorsPage = () => {
               </Box>
             </Box>
             <audio
-              ref={(ref) => (audioRefs.current[index] = ref!)} // Added non-null assertion operator (!)
+              ref={(ref: HTMLAudioElement | null) => {
+                if (ref) {
+                  audioRefs.current[index] = ref;
+                }
+              }}
               src={narrator.audioUrl}
             />
           </Card>
