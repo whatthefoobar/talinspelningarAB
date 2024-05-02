@@ -1,11 +1,11 @@
-/* HomePage.module.css */
 .homePageContainer {
-  /* height: 100vh; */
+  /* height: 85vh; */
   display: flex;
   align-items: center;
 }
 
 .content {
+  margin-top: 10vh;
   z-index: 99;
   padding: 20px;
 }
@@ -27,42 +27,21 @@
 
 .logoContainer {
   display: flex;
-  justify-content: space-between;
-
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
   padding: 20px;
   background-color: white;
 }
 
-.logoWrapper {
-  /* border: 2px solid red; */
-  padding: 0 50px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  /* justify-content: center; */
-  width: 100%;
-  gap: 20px;
-}
-
-/* .logoWrapper img {
-  margin-right: 40px;
+/* .logoContainer img {
+  
+  border: 2px solid green;
 } */
 
-/* Slider animation */
-@keyframes slide {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
-@media (max-width: 950px) {
-  .logoWrapper {
-    padding: 0;
-    width: 100%;
-    animation: slide 10s infinite linear;
-    overflow: hidden;
+@media (max-width: 860px) {
+  .logoContainer {
+    justify-content: center;
+    gap: 20px;
   }
 }

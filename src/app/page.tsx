@@ -37,13 +37,11 @@ const HomePage = () => {
       </Grid>
 
       <div className={styles.logoContainer}>
-        <div className={styles.logoWrapper}>
-          <Image src={company1} alt="Company 1 Logo" width={150} height={60} />
-          <Image src={company2} alt="Company 2 Logo" width={150} height={60} />
-          <Image src={company3} alt="Company 3 Logo" width={210} height={50} />
-          <Image src={company4} alt="Company 4 Logo" width={150} height={60} />
-          <Image src={company5} alt="Company 5 Logo" width={150} height={60} />
-        </div>
+        <Image src={company1} alt="Company 1 Logo" width={150} height={60} />
+        <Image src={company2} alt="Company 2 Logo" width={150} height={60} />
+        <Image src={company3} alt="Company 3 Logo" width={210} height={40} />
+        <Image src={company4} alt="Company 4 Logo" width={150} height={60} />
+        <Image src={company5} alt="Company 5 Logo" width={150} height={60} />
       </div>
     </div>
   );
