@@ -1,19 +1,14 @@
 import { Button, Grid, Typography } from "@mui/material";
-import Image from "next/image";
+import styles from "./HomePage.module.css"; // Import CSS module for styling
 // import home from "../../public/home.jpg";
 
 const HomePage = () => {
   return (
     <Grid
       container
-      style={{
-        marginTop: "10vh",
-        textAlign: "center",
-        fontSize: "2rem",
-        padding: "0 20px",
-      }}
+      className={styles.homePageContainer} // Use className to apply styles from CSS module
     >
-      <Grid item xs={12} md={6}>
+      <Grid item xs={12} md={6} className={styles.content}>
         <Typography variant="h2" component="h1" gutterBottom>
           Welcome to My Website
         </Typography>
@@ -32,16 +27,6 @@ const HomePage = () => {
         >
           Get Started
         </Button>
-      </Grid>
-      <Grid item xs={12} md={6} style={{ width: "500px" }}>
-        <Image
-          src="/home.jpg"
-          // src={home}
-          alt="Placeholder"
-          width={760}
-          height={506}
-          style={{ width: "100%", height: "auto" }}
-        />
       </Grid>
     </Grid>
   );
