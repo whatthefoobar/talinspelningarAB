@@ -1,4 +1,4 @@
-export interface Narrator {
+export interface INarrator {
   name: string;
   imageUrl: string;
   audioUrl: string;
@@ -13,6 +13,6 @@ export interface IFile {
   stream(): ReadableStream;
 }
 
-export interface AudioState {
+export interface IAudioState {
   isPlaying: boolean;
 }

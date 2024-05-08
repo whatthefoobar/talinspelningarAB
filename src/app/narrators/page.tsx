@@ -1,9 +1,9 @@
 import { Typography } from "@mui/material";
 
-import { Narrator } from "@/types";
+import { INarrator } from "@/types";
 import NarratorCard from "@/components/NarratorCard";
 
-const narrators: Narrator[] = [
+const narrators: INarrator[] = [
   {
     name: "Narrator 1",
     imageUrl: "/orjan.jpg", // Adjust paths as needed

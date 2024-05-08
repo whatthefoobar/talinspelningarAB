@@ -1,5 +1,5 @@
 "use client";
-import { Narrator } from "@/types";
+import { INarrator } from "@/types";
 import { Box, Card, CardContent, IconButton, Typography } from "@mui/material";
 import Image from "next/image";
 import { useRef, useState } from "react";
@@ -10,7 +10,7 @@ const NarratorCard = ({
   narrator,
   index,
 }: {
-  narrator: Narrator;
+  narrator: INarrator;
   index: number;
 }) => {
   const [isPlaying, setIsPlaying] = useState(false);
