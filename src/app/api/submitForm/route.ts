@@ -1,17 +1,7 @@
+import { IFile } from "@/types";
 import streamToBuffer from "@/util/streamToBuffer";
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
-// import streamToBuffer from "stream-to-buffer";
-
-// Define the File type
-interface IFile {
-  name: string;
-  size: number;
-  type: string;
-  arrayBuffer(): Promise<ArrayBuffer>;
-  slice(start?: number, end?: number, contentType?: string): Blob;
-  stream(): ReadableStream;
-}
 
 export async function POST(req: NextRequest, res: NextResponse) {
   const data = await req.formData();
