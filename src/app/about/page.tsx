@@ -1,3 +1,4 @@
+import Services from "@/components/Services";
 import {
   Grid,
   List,
@@ -43,48 +44,7 @@ const AboutPage: React.FC = () => {
         hög kompetens inom respektive fackområde och modermålsinläsare i alla
         större språk och även de flesta språk för nyanlända.
       </Typography>
-      <Typography
-        variant="h2"
-        style={{ fontSize: "1.5rem", fontWeight: "bold", marginTop: "24px" }}
-      >
-        VI GÖR FÖLJANDE
-      </Typography>
-      <Grid container spacing={2} justify="center">
-        <Grid item xs={12} sm={6}>
-          <List>
-            {[
-              "Lyssna",
-              "Talböcker, med eller utan textsynkronisering",
-              "Ljudböcker",
-              "Taltidningar",
-              "Informationsbroschyrer",
-              "Poddar, inklusive redigering, ljudslingor till färdig podd",
-              "Radioprogram",
-            ].map((text, index) => (
-              <ListItem key={index}>
-                <ListItemText primary={text} />
-              </ListItem>
-            ))}
-          </List>
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <List>
-            {[
-              "Museiguider",
-              "E-learningmaterial/Interaktiva websidor",
-              "Syntolkning",
-              "Manualer",
-              "Radioteater",
-              "Reklam",
-              "Ljud till appar",
-            ].map((text, index) => (
-              <ListItem key={index}>
-                <ListItemText primary={text} />
-              </ListItem>
-            ))}
-          </List>
-        </Grid>
-      </Grid>
+      <Services />
     </div>
   );
 };
