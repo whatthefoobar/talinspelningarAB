@@ -1,6 +1,5 @@
-import { Button, Grid, Typography } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import styles from "./page.module.css";
-// import home from "../../public/home.jpg";
 import company1 from "../../public/mtm-logo.png";
 import company2 from "../../public/spsm-logo.png";
 import company3 from "../../public/arbetsformedlingen-logo.png";
