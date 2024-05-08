@@ -17,12 +17,13 @@ import Button from "@mui/material/Button";
 import Image from "next/image";
 import Link from "next/link";
 
-const drawerWidth = 360;
+const drawerWidth = 240;
 const navItems = [
   { label: "Home", path: "/" },
   { label: "About", path: "/about" },
   { label: "Career", path: "/career" },
   { label: "Narrators", path: "/narrators" },
+  // { label: "X", path: "/" },
   // { label: "Contact", path: "/contact" },
 ];
 

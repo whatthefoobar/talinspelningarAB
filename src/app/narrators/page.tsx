@@ -1,12 +1,11 @@
 import { Typography } from "@mui/material";
-
 import { INarrator } from "@/types";
 import NarratorCard from "@/components/NarratorCard";
 
 const narrators: INarrator[] = [
   {
     name: "Narrator 1",
-    imageUrl: "/orjan.jpg", // Adjust paths as needed
+    imageUrl: "/orjan.jpg",
     audioUrl: "https://talinspelningar.se/wp-content/uploads/2019/10/Örjan.mp3",
   },
   {
@@ -15,7 +14,28 @@ const narrators: INarrator[] = [
     audioUrl:
       "https://talinspelningar.se/wp-content/uploads/2019/10/Camilla.mp3",
   },
-  // Add more narrators as needed
+  {
+    name: "Narrator 3",
+    imageUrl: "/orjan.jpg",
+    audioUrl: "https://talinspelningar.se/wp-content/uploads/2019/10/Örjan.mp3",
+  },
+  {
+    name: "Narrator 4",
+    imageUrl: "/camilla.jpg",
+    audioUrl:
+      "https://talinspelningar.se/wp-content/uploads/2019/10/Camilla.mp3",
+  },
+  // {
+  //   name: "Narrator 5",
+  //   imageUrl: "/orjan.jpg",
+  //   audioUrl: "https://talinspelningar.se/wp-content/uploads/2019/10/Örjan.mp3",
+  // },
+  // {
+  //   name: "Narrator 6",
+  //   imageUrl: "/camilla.jpg",
+  //   audioUrl:
+  //     "https://talinspelningar.se/wp-content/uploads/2019/10/Camilla.mp3",
+  // },
 ];
 
 const NarratorsPage = () => {
