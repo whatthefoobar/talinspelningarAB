@@ -25,6 +25,18 @@ const narrators: INarrator[] = [
     imageUrl: "/lars.jpg",
     audioUrl: "https://talinspelningar.se/wp-content/uploads/2019/10/lars.mp3",
   },
+  {
+    name: "Anna G",
+    imageUrl: "/anna-g.jpg",
+    audioUrl:
+      "https://talinspelningar.se/wp-content/uploads/2019/10/Anna-G.mp3",
+  },
+  {
+    name: "Jens J",
+    imageUrl: "/jens.jpg",
+    audioUrl:
+      "https://talinspelningar.se/wp-content/uploads/2019/10/jens-j.mp3",
+  },
 ];
 
 const NarratorsPage = () => {
