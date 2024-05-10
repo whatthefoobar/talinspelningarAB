@@ -6,6 +6,7 @@ import company3 from "../../public/arbetsformedlingen-logo.png";
 import company4 from "../../public/social-e1642080029691.png";
 import company5 from "../../public/eskilstuna-kommun-logo.png";
 import Image from "next/image";
+import Link from "next/link";
 
 const HomePage = () => {
   return (
@@ -17,17 +18,19 @@ const HomePage = () => {
         <Typography variant="h5" component="p" paragraph>
           Vi hjälper människor ta del av kunskap och litteratur via tal.
         </Typography>
-        <Button
-          variant="contained"
-          color="primary"
-          style={{
-            marginTop: "2vh",
-            marginBottom: "40px",
-            backgroundColor: "#f28500",
-          }}
-        >
-          Get Started
-        </Button>
+        <Link href="/narrators" passHref>
+          <Button
+            variant="contained"
+            color="primary"
+            style={{
+              marginTop: "2vh",
+              marginBottom: "40px",
+              backgroundColor: "#f28500",
+            }}
+          >
+            Our narrators
+          </Button>
+        </Link>
       </div>
 
       <div className={styles.logoContainer}>
