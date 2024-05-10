@@ -63,6 +63,9 @@ const NarratorCard = ({
             pb: 1,
           }}
         >
+          <Typography component="div" variant="h6">
+            Sample audio
+          </Typography>
           <IconButton
             aria-label={isPlaying ? "pause" : "play"}
             onClick={handleTogglePlayback}
