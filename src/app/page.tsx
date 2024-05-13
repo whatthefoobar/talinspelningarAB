@@ -12,7 +12,7 @@ const HomePage = () => {
   return (
     <div className={styles.homePageContainer}>
       <div className={styles.content}>
-        <Typography variant="h2" component="h1" gutterBottom>
+        <Typography variant="h3" component="h1" gutterBottom>
           Välkommen till Talinspelningar
         </Typography>
         <Typography variant="h5" component="p" paragraph>

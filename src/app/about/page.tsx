@@ -33,7 +33,6 @@ const AboutPage: React.FC = () => {
       <Typography
         style={{
           fontSize: "1.3rem",
-
           marginBottom: "16px",
           textAlign: "left",
         }}

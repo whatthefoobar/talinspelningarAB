@@ -1,45 +1,19 @@
-import { Typography } from "@mui/material";
-import { INarrator } from "@/types";
+"use client";
+import { useState } from "react";
+import { Typography, Button } from "@mui/material";
 import NarratorCard from "@/components/NarratorCard";
+import { narrators } from "@/util/narrators";
 
-const narrators: INarrator[] = [
-  {
-    name: "Örjan",
-    imageUrl: "/orjan.jpg",
-    audioUrl: "https://talinspelningar.se/wp-content/uploads/2019/10/Örjan.mp3",
-  },
-  {
-    name: "Camilla",
-    imageUrl: "/camilla.jpg",
-    audioUrl:
-      "https://talinspelningar.se/wp-content/uploads/2019/10/Camilla.mp3",
-  },
-  {
-    name: "Anna W",
-    imageUrl: "/anna-w.jpg",
-    audioUrl:
-      "https://talinspelningar.se/wp-content/uploads/2019/10/anna-w.mp3",
-  },
-  {
-    name: "Lars",
-    imageUrl: "/lars.jpg",
-    audioUrl: "https://talinspelningar.se/wp-content/uploads/2019/10/lars.mp3",
-  },
-  {
-    name: "Anna G",
-    imageUrl: "/anna-g.jpg",
-    audioUrl:
-      "https://talinspelningar.se/wp-content/uploads/2019/10/Anna-G.mp3",
-  },
-  {
-    name: "Jens J",
-    imageUrl: "/jens.jpg",
-    audioUrl:
-      "https://talinspelningar.se/wp-content/uploads/2019/10/jens-j.mp3",
-  },
-];
+const PAGE_SIZE = 6; // Number of items to load per page
 
 const NarratorsPage = () => {
+  const [loadedCount, setLoadedCount] = useState(PAGE_SIZE);
+
+  const loadMore = () => {
+    // Load the remainder of the narrators
+    setLoadedCount(narrators.length);
+  };
+
   return (
     <>
       <Typography variant="h4" gutterBottom>
@@ -54,10 +28,15 @@ const NarratorsPage = () => {
           padding: "20px",
         }}
       >
-        {narrators.map((narrator, index) => (
+        {narrators.slice(0, loadedCount).map((narrator, index) => (
           <NarratorCard key={index} narrator={narrator} index={index} />
         ))}
       </div>
+      {loadedCount < narrators.length && (
+        <Button variant="contained" onClick={loadMore}>
+          Load more
+        </Button>
+      )}
     </>
   );
 };
