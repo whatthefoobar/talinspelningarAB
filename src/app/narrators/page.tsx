@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Typography, Button } from "@mui/material";
+import { Typography, Button, Box } from "@mui/material";
 import NarratorCard from "@/components/NarratorCard";
 import { narrators } from "@/util/narrators";
 
@@ -15,11 +15,11 @@ const NarratorsPage = () => {
   };
 
   return (
-    <>
+    <Box mb={4}>
       <Typography variant="h4" gutterBottom>
         Our narrators
       </Typography>
-      <div
+      <Box
         style={{
           display: "flex",
           flexWrap: "wrap",
@@ -31,18 +31,18 @@ const NarratorsPage = () => {
         {narrators.slice(0, loadedCount).map((narrator, index) => (
           <NarratorCard key={index} narrator={narrator} index={index} />
         ))}
-      </div>
+      </Box>
       {loadedCount < narrators.length && (
         <Button
           variant="contained"
           color="primary"
           onClick={loadMore}
-          sx={{ marginBottom: "20px", backgroundColor: "#f28500" }}
+          sx={{ backgroundColor: "#f28500" }}
         >
           Load more
         </Button>
       )}
-    </>
+    </Box>
   );
 };
 

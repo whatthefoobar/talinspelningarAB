@@ -1,26 +1,16 @@
 import Services from "@/components/Services";
-import {
-  Grid,
-  List,
-  ListItem,
-  ListItemText,
-  Paper,
-  Typography,
-} from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import React from "react";
-// import Typography from "@material-ui/core/Typography";
-// import List from "@material-ui/core/List";
-// import ListItem from "@material-ui/core/ListItem";
-// import ListItemText from "@material-ui/core/ListItemText";
 
 const AboutPage: React.FC = () => {
   return (
-    <div
+    <Box
       style={{
         width: "100%",
         maxWidth: 1100,
         margin: "auto",
-        padding: "24px",
+        padding: "0 24px",
+        marginBottom: "32px",
         textAlign: "center",
       }}
     >
@@ -49,7 +39,7 @@ const AboutPage: React.FC = () => {
         större språk och även de flesta språk för nyanlända.
       </Typography>
       <Services />
-    </div>
+    </Box>
   );
 };
 

@@ -1,4 +1,4 @@
-import { Card, CardContent, Grid, Typography } from "@mui/material";
+import { Box, Card, CardContent, Grid, Typography } from "@mui/material";
 import React from "react";
 import { BiSolidBookBookmark } from "react-icons/bi";
 import { LuFileAudio } from "react-icons/lu";
@@ -30,9 +30,9 @@ const ServiceCard: React.FC<IServiceCardProps> = ({
           textAlign: "center",
         }}
       >
-        <div style={{ fontSize: "2rem", marginBottom: "8px" }}>
+        <Box style={{ fontSize: "2rem", marginBottom: "8px" }}>
           <Icon />
-        </div>
+        </Box>
         <CardContent>
           <Typography variant="h6" component="h2" gutterBottom>
             {title}

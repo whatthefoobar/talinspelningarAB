@@ -1,4 +1,4 @@
-import { Button, Typography } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import styles from "./page.module.css";
 import company1 from "../../public/mtm-logo.png";
 import company2 from "../../public/spsm-logo.png";
@@ -10,8 +10,8 @@ import Link from "next/link";
 
 const HomePage = () => {
   return (
-    <div className={styles.homePageContainer}>
-      <div className={styles.content}>
+    <Box className={styles.homePageContainer}>
+      <Box className={styles.content}>
         <Typography variant="h3" component="h1" gutterBottom>
           Välkommen till Talinspelningar
         </Typography>
@@ -31,16 +31,16 @@ const HomePage = () => {
             Our narrators
           </Button>
         </Link>
-      </div>
+      </Box>
 
-      <div className={styles.logoContainer}>
+      <Box className={styles.logoContainer}>
         <Image src={company1} alt="Company 1 Logo" width={150} height={60} />
         <Image src={company2} alt="Company 2 Logo" width={150} height={60} />
         <Image src={company3} alt="Company 3 Logo" width={210} height={40} />
         <Image src={company4} alt="Company 4 Logo" width={150} height={60} />
         <Image src={company5} alt="Company 5 Logo" width={150} height={60} />
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 };
 

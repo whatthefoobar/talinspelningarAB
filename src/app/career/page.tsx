@@ -104,7 +104,7 @@ const CareerPage = () => {
   };
 
   return (
-    <Box maxWidth="600px" mx="auto" mt={4}>
+    <Box maxWidth="600px" mx="auto" mt={4} mb={4}>
       <Paper sx={{ padding: "20px" }}>
         <Typography variant="h4" gutterBottom>
           Career Opportunities

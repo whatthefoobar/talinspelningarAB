@@ -40,7 +40,7 @@ const NarratorCard = ({
         flexDirection: "column",
       }}
     >
-      <div style={{ position: "relative", width: "100%", height: "300px" }}>
+      <Box sx={{ position: "relative", width: "100%", height: "300px" }}>
         <Image
           src={narrator.imageUrl}
           alt="Narrator Image"
@@ -48,7 +48,7 @@ const NarratorCard = ({
           width={320}
           height={300}
         />
-      </div>
+      </Box>
       <Box sx={{ display: "flex", flexDirection: "column" }}>
         <CardContent sx={{ flex: "1 0 auto" }}>
           <Typography component="div" variant="h5">
