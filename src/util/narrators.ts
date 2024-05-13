@@ -53,4 +53,52 @@ export const narrators: INarrator[] = [
     audioUrl:
       "https://talinspelningar.se/wp-content/uploads/2019/10/francesca.mp3",
   },
+  {
+    name: "Paul",
+    imageUrl: "/paul.jpg",
+    audioUrl: "https://talinspelningar.se/wp-content/uploads/2019/10/paul.mp3",
+  },
+  {
+    name: "Shabnam",
+    imageUrl: "/shabnam.jpg",
+    audioUrl:
+      "https://talinspelningar.se/wp-content/uploads/2019/10/Shabnam.mp3",
+  },
+  {
+    name: "Neil",
+    imageUrl: "/neil.jpg",
+    audioUrl: "https://talinspelningar.se/wp-content/uploads/2019/10/neil.mp3",
+  },
+  {
+    name: "Robert",
+    imageUrl: "/robert.jpg",
+    audioUrl:
+      "https://talinspelningar.se/wp-content/uploads/2019/10/robert.mp3",
+  },
+  {
+    name: "Sari",
+    imageUrl: "/sari.jpg",
+    audioUrl: "https://talinspelningar.se/wp-content/uploads/2019/10/Sari.mp3",
+  },
+  {
+    name: "Scott",
+    imageUrl: "/scott.jpg",
+    audioUrl: "https://talinspelningar.se/wp-content/uploads/2019/10/scott.mp3",
+  },
+  {
+    name: "Johan",
+    imageUrl: "/johan.jpg",
+    audioUrl: "https://talinspelningar.se/wp-content/uploads/2019/10/Johan.mp3",
+  },
+  {
+    name: "Ingemar",
+    imageUrl: "/ingemar.jpg",
+    audioUrl:
+      "https://talinspelningar.se/wp-content/uploads/2019/10/Ingemar.mp3",
+  },
+  {
+    name: "Hans",
+    imageUrl: "/hans.jpg",
+    audioUrl: "https://talinspelningar.se/wp-content/uploads/2019/10/Hans.mp3",
+  },
 ];
