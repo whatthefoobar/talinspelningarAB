@@ -31,7 +31,12 @@ const AboutPage: React.FC = () => {
         30 ÅRS ERFARENHET
       </Typography>
       <Typography
-        style={{ fontSize: "1.3rem", fontWeight: "bold", marginBottom: "16px" }}
+        style={{
+          fontSize: "1.3rem",
+
+          marginBottom: "16px",
+          textAlign: "left",
+        }}
       >
         Vi har en stor stab av professionella uppläsare inom olika kategorier.
         Många med mångårig erfarenhet. Våra studios är specialutrustade för just
