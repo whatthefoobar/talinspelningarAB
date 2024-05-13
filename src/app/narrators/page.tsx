@@ -4,7 +4,7 @@ import { Typography, Button } from "@mui/material";
 import NarratorCard from "@/components/NarratorCard";
 import { narrators } from "@/util/narrators";
 
-const PAGE_SIZE = 6; // Number of items to load per page
+const PAGE_SIZE = 8; // Number of items to load per page
 
 const NarratorsPage = () => {
   const [loadedCount, setLoadedCount] = useState(PAGE_SIZE);
@@ -33,7 +33,12 @@ const NarratorsPage = () => {
         ))}
       </div>
       {loadedCount < narrators.length && (
-        <Button variant="contained" onClick={loadMore}>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={loadMore}
+          sx={{ marginBottom: "20px", backgroundColor: "#f28500" }}
+        >
           Load more
         </Button>
       )}

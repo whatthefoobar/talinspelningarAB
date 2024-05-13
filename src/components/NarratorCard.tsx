@@ -35,18 +35,18 @@ const NarratorCard = ({
       key={index}
       sx={{
         width: "100%",
-        maxWidth: "360px",
+        maxWidth: "320px",
         display: "flex",
         flexDirection: "column",
       }}
     >
-      <div style={{ position: "relative", width: "100%", height: "340px" }}>
+      <div style={{ position: "relative", width: "100%", height: "300px" }}>
         <Image
           src={narrator.imageUrl}
           alt="Narrator Image"
           priority
-          width={360}
-          height={340}
+          width={320}
+          height={300}
         />
       </div>
       <Box sx={{ display: "flex", flexDirection: "column" }}>
