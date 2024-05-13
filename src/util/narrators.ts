@@ -101,4 +101,66 @@ export const narrators: INarrator[] = [
     imageUrl: "/hans.jpg",
     audioUrl: "https://talinspelningar.se/wp-content/uploads/2019/10/Hans.mp3",
   },
+  {
+    name: "Sidar",
+    imageUrl: "/sidar.jpg",
+    audioUrl: "https://talinspelningar.se/wp-content/uploads/2019/10/Sidar.mp3",
+  },
+  {
+    name: "Anna D",
+    imageUrl: "/anna-d.jpg",
+    audioUrl:
+      "https://talinspelningar.se/wp-content/uploads/2019/10/Anna-D.mp3",
+  },
+  {
+    name: "Kola",
+    imageUrl: "/kola.jpg",
+    audioUrl: "https://talinspelningar.se/wp-content/uploads/2019/10/Kola.mp3",
+  },
+  {
+    name: "Jens M",
+    imageUrl: "/jens-m.jpg",
+    audioUrl:
+      "https://talinspelningar.se/wp-content/uploads/2019/10/Jens-M.mp3",
+  },
+  {
+    name: "Dan",
+    imageUrl: "/dan.jpg",
+    audioUrl: "https://talinspelningar.se/wp-content/uploads/2019/10/Dan.mp3",
+  },
+  {
+    name: "Christer",
+    imageUrl: "/christer.jpg",
+    audioUrl:
+      "https://talinspelningar.se/wp-content/uploads/2019/10/Christer.mp3",
+  },
+  {
+    name: "Charlotte",
+    imageUrl: "/charlotte.jpg",
+    audioUrl:
+      "https://talinspelningar.se/wp-content/uploads/2019/10/charlotte.mp3",
+  },
+  {
+    name: "Charlotta",
+    imageUrl: "/charlotta.jpg",
+    audioUrl:
+      "https://talinspelningar.se/wp-content/uploads/2019/10/Charlotta.mp3",
+  },
+  {
+    name: "Carin",
+    imageUrl: "/carin.jpg",
+    audioUrl: "https://talinspelningar.se/wp-content/uploads/2019/10/Carin.mp3",
+  },
+  {
+    name: "Britt R",
+    imageUrl: "/britt-r.jpg",
+    audioUrl:
+      "https://talinspelningar.se/wp-content/uploads/2019/10/Britt-R.mp3",
+  },
+  {
+    name: "Britt Ö",
+    imageUrl: "/britt-o.jpg",
+    audioUrl:
+      "https://talinspelningar.se/wp-content/uploads/2019/10/Britt-Ö.mp3",
+  },
 ];
