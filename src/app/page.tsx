@@ -28,7 +28,7 @@ const HomePage = () => {
               backgroundColor: "#f28500",
             }}
           >
-            Our narrators
+            Våra inläsare
           </Button>
         </Link>
       </Box>
