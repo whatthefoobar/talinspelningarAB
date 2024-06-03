@@ -19,10 +19,10 @@ import Link from "next/link";
 
 const drawerWidth = 240;
 const navItems = [
-  { label: "Home", path: "/" },
-  { label: "About", path: "/about" },
-  { label: "Career", path: "/career" },
-  { label: "Narrators", path: "/narrators" },
+  { label: "Hem", path: "/" },
+  { label: "Om oss", path: "/about" },
+  { label: "Karriär", path: "/career" },
+  { label: "Inläsare", path: "/narrators" },
   // { label: "X", path: "/" },
   // { label: "Contact", path: "/contact" },
 ];
