@@ -39,7 +39,7 @@ const NarratorsPage = () => {
           onClick={loadMore}
           sx={{ backgroundColor: "#f28500" }}
         >
-          Load more
+          Visa alla
         </Button>
       )}
     </Box>

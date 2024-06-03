@@ -107,11 +107,11 @@ const CareerPage = () => {
     <Box maxWidth="600px" mx="auto" mt={4} mb={4}>
       <Paper sx={{ padding: "20px" }}>
         <Typography variant="h4" gutterBottom>
-          Career Opportunities
+          Karriärmöjligheter
         </Typography>
         <Typography variant="body1" gutterBottom>
-          Interested in joining our team? Please fill out the form below to
-          apply for available positions.
+          Intresserad av att bli en del av vårt team? Vänligen fyll i formuläret
+          nedan för att ansöka om tillgängliga tjänster.
         </Typography>
         <form onSubmit={handleSubmit}>
           <Box mt={2}>
@@ -120,7 +120,7 @@ const CareerPage = () => {
               fullWidth
               id="name"
               name="name"
-              label="Your Name"
+              label="Ditt namn"
               variant="outlined"
               autoComplete="name"
               value={name}
@@ -134,7 +134,7 @@ const CareerPage = () => {
               fullWidth
               id="email"
               name="email"
-              label="Your Email"
+              label="Din email"
               type="email"
               variant="outlined"
               autoComplete="email"
@@ -148,7 +148,7 @@ const CareerPage = () => {
               fullWidth
               id="phone"
               name="phone"
-              label="Phone Number"
+              label="Telefonnummer"
               variant="outlined"
               autoComplete="tel"
               value={phone}
@@ -164,7 +164,7 @@ const CareerPage = () => {
               startIcon={<CloudUploadIcon />}
               style={{ backgroundColor: "transparent", color: "#565554" }}
             >
-              {cvFile !== undefined ? cvFile.name : "Upload your CV"}
+              {cvFile !== undefined ? cvFile.name : "Ladda upp ditt CV"}
 
               <VisuallyHiddenInput
                 type="file"
@@ -185,7 +185,7 @@ const CareerPage = () => {
             >
               {audioFile !== undefined
                 ? audioFile.name
-                : "Upload your audio file"}
+                : "Ladda upp din provljudfil"}
 
               <VisuallyHiddenInput
                 type="file"
@@ -209,7 +209,7 @@ const CareerPage = () => {
               }}
               disabled={submitDisabled}
             >
-              Submit
+              Skicka
             </Button>
           </Box>
         </form>

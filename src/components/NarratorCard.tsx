@@ -64,7 +64,7 @@ const NarratorCard = ({
           }}
         >
           <Typography component="div" variant="h6">
-            Sample audio
+            Provljud
           </Typography>
           <IconButton
             aria-label={isPlaying ? "pause" : "play"}

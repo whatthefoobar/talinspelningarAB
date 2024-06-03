@@ -20,11 +20,11 @@ import Link from "next/link";
 const drawerWidth = 240;
 const navItems = [
   { label: "Hem", path: "/" },
-  { label: "Om oss", path: "/about" },
-  { label: "Karriär", path: "/career" },
-  { label: "Inläsare", path: "/narrators" },
+  { label: "Om oss", path: "/omoss" },
+  { label: "Karriär", path: "/karriar" },
+  { label: "Inläsare", path: "/inlasare" },
   // { label: "X", path: "/" },
-  // { label: "Contact", path: "/contact" },
+  // { label: "Kontakt", path: "/kontakt" },
 ];
 
 const Navbar: React.FC = () => {
