@@ -18,7 +18,7 @@ const HomePage = () => {
         <Typography variant="h5" component="p" paragraph>
           Vi hjälper människor ta del av kunskap och litteratur via tal.
         </Typography>
-        <Link href="/narrators" passHref>
+        <Link href="/inlasare" passHref>
           <Button
             variant="contained"
             color="primary"
