@@ -29,7 +29,9 @@ const Footer = () => {
         </Grid>
         <Grid item xs={12} sm={4} className={styles.column}>
           <Typography variant="h6">Kundservice</Typography>
-          <Typography variant="body1">Integritetspolicy</Typography>
+          <Typography variant="body1" component={Link} href="/integritetspolicy">
+          Integritetspolicy
+          </Typography>
           {/* add link here to: https://talinspelningar.se/integritetspolicy/ */}
         </Grid>
       </Grid>
