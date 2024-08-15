@@ -14,15 +14,14 @@ const NotFoundPage = () => {
         gap: "10px",
       }}
     >
-      <Typography variant="h4">404 - Page Not Found</Typography>
+      <Typography variant="h4">404 - Sidan hittades inte</Typography>
       <Typography variant="body1">
-        The page you are looking for might have been removed, had its name
-        changed, or is temporarily unavailable.
+        Sidan du letar efter kan ha tagits bort, fått sitt namn ändrat eller är tillfälligt otillgänglig.
       </Typography>
       <Typography variant="body1">
-        Go back to{" "}
+        Gå tillbaka till{" "}
         <Link href="/" color="primary" style={{ textDecoration: "none" }}>
-          <span style={{ textDecoration: "underline" }}>Homepage</span>
+          <span style={{ textDecoration: "underline" }}>hemsidan</span>
         </Link>
       </Typography>
     </Container>
