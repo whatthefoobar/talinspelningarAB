@@ -1,8 +1,7 @@
 import Services from "@/components/Services";
 import { Box, Typography } from "@mui/material";
-import React from "react";
 
-const AboutPage: React.FC = () => {
+const AboutPage = () => {
   return (
     <Box
       style={{
@@ -15,14 +14,14 @@ const AboutPage: React.FC = () => {
       }}
     >
       <Typography
-        variant="h1"
-        style={{ fontSize: "2rem", fontWeight: "bold", marginBottom: "16px" }}
+        variant="h2"
+        style={{ fontSize: "1.8rem", fontWeight: "bold", marginBottom: "16px" }}
       >
         30 ÅRS ERFARENHET
       </Typography>
       <Typography
         style={{
-          fontSize: "1.3rem",
+          fontSize: "1.2rem",
           marginBottom: "16px",
           textAlign: "left",
           textIndent: "30px",
@@ -35,7 +34,7 @@ const AboutPage: React.FC = () => {
       </Typography>
       <Typography
         style={{
-          fontSize: "1.3rem",
+          fontSize: "1.2rem",
           marginBottom: "16px",
           textAlign: "left",
           textIndent: "30px",

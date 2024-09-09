@@ -47,7 +47,7 @@ const Services = () => {
       <Typography
         variant="h2"
         style={{
-          fontSize: "1.5rem",
+          fontSize: "1.4rem",
           fontWeight: "bold",
           marginTop: "24px",
           marginBottom: "30px",
@@ -60,7 +60,7 @@ const Services = () => {
           icon={BiSolidBookBookmark}
           title="Böcker/tidningar"
           description="Talböcker, med eller utan textsynkronisering,
- Ljudböcker,Taltidningar"
+         Ljudböcker,Taltidningar"
         />
         <ServiceCard
           icon={LuFileAudio}
