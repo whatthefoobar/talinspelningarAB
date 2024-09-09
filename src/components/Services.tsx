@@ -1,5 +1,4 @@
 import { Box, Card, CardContent, Grid, Typography } from "@mui/material";
-import React from "react";
 import { BiSolidBookBookmark } from "react-icons/bi";
 import { LuFileAudio } from "react-icons/lu";
 import { IoSchoolOutline } from "react-icons/io5";
@@ -12,11 +11,7 @@ interface IServiceCardProps {
   description: string;
 }
 
-const ServiceCard: React.FC<IServiceCardProps> = ({
-  icon: Icon,
-  title,
-  description,
-}) => {
+const ServiceCard = ({ icon: Icon, title, description }: IServiceCardProps) => {
   return (
     <Grid item xs={12} sm={6} md={3}>
       <Card
@@ -46,7 +41,7 @@ const ServiceCard: React.FC<IServiceCardProps> = ({
   );
 };
 
-const Services: React.FC = () => {
+const Services = () => {
   return (
     <>
       <Typography
@@ -74,7 +69,7 @@ const Services: React.FC = () => {
         />
         <ServiceCard
           icon={IoSchoolOutline}
-          title="Educational material"
+          title="Utbildningsmaterial"
           description="Informationsbroschyrer,
               Museiguider,
               E-learningmaterial/Interaktiva websidor,
@@ -82,7 +77,7 @@ const Services: React.FC = () => {
         />
         <ServiceCard
           icon={AiTwotoneCustomerService}
-          title="Other"
+          title="Övriga"
           description="Syntolkning, Reklam,Ljud till appar"
         />
       </Grid>

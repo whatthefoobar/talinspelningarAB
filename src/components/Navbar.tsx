@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import { useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -23,11 +23,9 @@ const navItems = [
   { label: "Om oss", path: "/omoss" },
   { label: "Karriär", path: "/karriar" },
   { label: "Inläsare", path: "/inlasare" },
-  // { label: "X", path: "/" },
-  // { label: "Kontakt", path: "/kontakt" },
 ];
 
-const Navbar: React.FC = () => {
+const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState<boolean>(false);
 
   const handleDrawerToggle = () => {
