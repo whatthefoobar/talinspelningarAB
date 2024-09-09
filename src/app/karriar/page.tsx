@@ -26,8 +26,10 @@ const CareerPage = () => {
   const [phone, setPhone] = React.useState<string>("");
   const [cvFile, setCVFile] = React.useState<File>();
   const [audioFile, setAudioFile] = React.useState<File>();
-  const [formError, setFormError] = React.useState<boolean>(false); // not used yet
+  const [formError, setFormError] = React.useState<boolean>(false);
   const [submitDisabled, setSubmitDisabled] = React.useState<boolean>(true);
+  const [isSubmitted, setIsSubmitted] = React.useState<boolean>(false);
+  const [isSubmitting, setIsSubmitting] = React.useState<boolean>(false);
 
   const handleCVFileChange = (e: React.FormEvent) => {
     const files = (e.target as HTMLInputElement).files;
@@ -66,9 +68,6 @@ const CareerPage = () => {
       return;
     }
 
-    // // Reset form error when all fields are filled
-    // setFormError(false);
-
     const formData = new FormData();
     formData.append("name", name);
     formData.append("email", email);
@@ -80,10 +79,7 @@ const CareerPage = () => {
       formData.append("audio", audioFile);
     }
 
-    // Log form data to console
-    for (const pair of formData.entries()) {
-      console.log("form data:", pair[0], pair[1]);
-    }
+    setIsSubmitting(true); // Start submitting state
 
     try {
       const response = await fetch("/api/submitForm", {
@@ -92,16 +88,29 @@ const CareerPage = () => {
       });
 
       if (response.ok) {
-        console.log("form data submitted:", formData);
-
-        console.log("Form submitted successfully");
+        setIsSubmitted(true); // Set form submission state to true
       } else {
         console.error("Failed to submit form:", response.statusText);
       }
     } catch (error) {
       console.error("Error submitting form:", error);
+    } finally {
+      setIsSubmitting(false); // End submitting state
     }
   };
+
+  if (isSubmitted) {
+    return (
+      <Box maxWidth="600px" mx="auto" mt={4} mb={4} sx={{ zIndex: "999" }}>
+        <Paper sx={{ padding: "20px", textAlign: "center" }}>
+          <Typography variant="h4" gutterBottom>
+            Tack för ditt meddelande.
+          </Typography>
+          <Typography variant="body1">Vi återkommer snart.</Typography>
+        </Paper>
+      </Box>
+    );
+  }
 
   return (
     <Box maxWidth="600px" mx="auto" mt={4} mb={4} sx={{ zIndex: "999" }}>
@@ -196,20 +205,16 @@ const CareerPage = () => {
             </Button>
           </Box>
           <Box mt={2}>
-            {/* {formError && (
-              <Box mt={2} color="red">
-                Please fill in all fields.
-              </Box>
-            )} */}
             <Button
               type="submit"
               variant="contained"
               style={{
-                backgroundColor: submitDisabled ? "#d2ac7d" : "#f28500", // Set text color to white for better visibility
+                backgroundColor: submitDisabled ? "#d2ac7d" : "#f28500",
               }}
-              disabled={submitDisabled}
+              disabled={submitDisabled || isSubmitting} // Disable button while submitting
             >
-              Skicka
+              {isSubmitting ? "Skickar..." : "Skicka"}{" "}
+              {/* Change button text while submitting */}
             </Button>
           </Box>
         </form>
@@ -219,15 +224,3 @@ const CareerPage = () => {
 };
 
 export default CareerPage;
-
-// Send formData to backend using fetch or any other method here
-
-// for (const pair of formData.entries()) {
-//   if (pair[0] === "cvFile" && pair[1] instanceof File) {
-//     console.log("CV File Name:", pair[1].name);
-//   } else if (pair[0] === "audioFile" && pair[1] instanceof File) {
-//     console.log("Audio File Name:", pair[1].name);
-//   } else {
-//     console.log(pair[0] + ", " + pair[1]);
-//   }
-// }
