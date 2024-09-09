@@ -17,7 +17,7 @@ const NarratorsPage = () => {
   return (
     <Box mb={4}>
       <Typography variant="h4" gutterBottom>
-        Our narrators
+        Våra inläsare
       </Typography>
       <Box
         style={{
