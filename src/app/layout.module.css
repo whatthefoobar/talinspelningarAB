@@ -26,3 +26,14 @@
   opacity: 0.3;
   background-color: rgba(129, 117, 213, 0.7);
 }
+
+.logoContainer img {
+  max-width: 15%; /* Adjust this percentage to control the size of logos */
+  height: auto;
+}
+
+@media (max-width: 860px) {
+  .logoContainer img {
+    max-width: 40%; /* Adjust the size of logos on smaller screens */
+  }
+}

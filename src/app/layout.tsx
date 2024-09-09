@@ -20,13 +20,24 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body>
-        <Navbar />
-        <main
-          style={{ marginTop: "15vh", textAlign: "center", fontSize: "2rem" }}
-        >
-          <AppRouterCacheProvider>{children} </AppRouterCacheProvider>
-        </main>
-        <Footer />
+        <div className="layoutContainer">
+          <div className="backgroundOverlay" />
+          <Navbar />
+          <main
+            className="pageContent"
+            style={{
+              marginTop: "15vh",
+              textAlign: "center",
+              fontSize: "2rem",
+              flexGrow: 1,
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
+            <AppRouterCacheProvider>{children}</AppRouterCacheProvider>
+          </main>
+          <Footer />
+        </div>
       </body>
     </html>
   );
